@@ -1,6 +1,7 @@
 import { PiBookmarkSimple } from "react-icons/pi";
-const Blog = ({blog}) => {
-    const {cover_img,title,author,author_img,hashtags,reading_time,posted_date} =blog;
+
+const Blog = ({ blog, handleAddToBookmark }) => {
+    const { cover_img, title, author, author_img, hashtags, reading_time, posted_date } = blog;
     return (
         <div className="space-y-4">
             <img className="w-full h-[450px]" src={cover_img} alt="" />
@@ -14,7 +15,9 @@ const Blog = ({blog}) => {
                 </div>
                 <div className="flex justify-center items-center">
                     <span className="text-[rgba(17,17,17,.6)] text-[20px] font-medium">{reading_time} min read</span>
-                    <button className="text-2xl ml-1 text-[rgba(17,17,17,.6)]"><PiBookmarkSimple /></button>
+                    <button 
+                    onClick={() => handleAddToBookmark(blog)}
+                     className="text-2xl ml-1 text-[rgba(17,17,17,.6)] cursor-pointer"><PiBookmarkSimple /></button>
                 </div>
             </div>
             <h2 className="text-[#111111] text-[40px] font-bold">{title}</h2>
