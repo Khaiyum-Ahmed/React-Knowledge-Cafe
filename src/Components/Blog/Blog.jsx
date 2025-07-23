@@ -1,7 +1,7 @@
 import { PiBookmarkSimple } from "react-icons/pi";
 
 const Blog = ({ blog, handleAddToBookmark,handleMarkAsRead }) => {
-    const { cover_img, title, author, author_img, hashtags, reading_time, posted_date } = blog;
+    const {id, cover_img, title, author, author_img, hashtags, reading_time, posted_date } = blog;
     return (
         <div className="space-y-4">
             <img className="w-full h-[450px]" src={cover_img} alt="" />
@@ -27,7 +27,7 @@ const Blog = ({ blog, handleAddToBookmark,handleMarkAsRead }) => {
                     hashtags.map(hash => <span className="ml-1 font-medium text-[rgba(17,17,17,.6)] text-xl"><a>{hash}</a></span>)
                 }
             </p>
-            <button className="text-xl font-semibold text-[#6047EC] mb-7 underline" onClick={()=>handleMarkAsRead(reading_time)}>Mark As Read</button>
+            <button className="text-xl font-semibold text-[#6047EC] mb-7 underline" onClick={()=>handleMarkAsRead(id, reading_time)}>Mark As Read</button>
             <hr className="mb-10 text-[rgba(17,17,17,.1)]" />
             
         </div>
