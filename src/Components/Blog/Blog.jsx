@@ -1,6 +1,6 @@
 import { PiBookmarkSimple } from "react-icons/pi";
 
-const Blog = ({ blog, handleAddToBookmark }) => {
+const Blog = ({ blog, handleAddToBookmark,handleMarkAsRead }) => {
     const { cover_img, title, author, author_img, hashtags, reading_time, posted_date } = blog;
     return (
         <div className="space-y-4">
@@ -15,9 +15,9 @@ const Blog = ({ blog, handleAddToBookmark }) => {
                 </div>
                 <div className="flex justify-center items-center">
                     <span className="text-[rgba(17,17,17,.6)] text-[20px] font-medium">{reading_time} min read</span>
-                    <button 
-                    onClick={() => handleAddToBookmark(blog)}
-                     className="text-2xl ml-1 text-[rgba(17,17,17,.6)] cursor-pointer"><PiBookmarkSimple /></button>
+                    <button
+                        onClick={() => handleAddToBookmark(blog)}
+                        className="text-2xl ml-1 text-[rgba(17,17,17,.6)] cursor-pointer"><PiBookmarkSimple /></button>
                 </div>
             </div>
             <h2 className="text-[#111111] text-[40px] font-bold">{title}</h2>
@@ -27,9 +27,9 @@ const Blog = ({ blog, handleAddToBookmark }) => {
                     hashtags.map(hash => <span className="ml-1 font-medium text-[rgba(17,17,17,.6)] text-xl"><a>{hash}</a></span>)
                 }
             </p>
-            <div>
-
-            </div>
+            <button className="text-xl font-semibold text-[#6047EC] mb-7 underline" onClick={()=>handleMarkAsRead(reading_time)}>Mark As Read</button>
+            <hr className="mb-10 text-[rgba(17,17,17,.1)]" />
+            
         </div>
     );
 };
